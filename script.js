@@ -178,11 +178,11 @@ let i = 0;
  let x = prompt("Введитен x");
  isInteger(x);
  function isInteger(x) {
-//     if (x % 2 == 0) {
-//         alert(true);
-//     } else {
-//         alert(false);
-//     }
+     if (x % 1 == 0 && x % x == 0) {
+         alert(true);
+     } else {
+         alert(false);
+    }
  }
 
 
@@ -203,7 +203,7 @@ let n = prompt("Введите n");
 natural(n);
 function natural(n) {
     for (let i = 0; i < n; i + 0,5) {
-        if (Number.isInteger(i)) {
+        if ( i % i == 0 && i % 1 == 0) {
             alert(`${i} integer`);
         } else {
             alert(`${i} decimal`);
