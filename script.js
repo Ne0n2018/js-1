@@ -113,9 +113,6 @@
              newArr.push(arr[i]); 
          }
      }
-     for (let i = 0; i < newArr.length; i++) {
-         console.log(newArr[i]);
-     }
  }
  let arr = [5, 4, 3, 8, 0];
  filterFor(arr,6);
