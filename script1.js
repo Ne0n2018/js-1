@@ -26,7 +26,7 @@
 // Сегодня 27.10.2022 (здесь будет ваша дата)
 
 // 19 часов 20 минут (здесь будет ваше время)
-var d = (new Date()).toISOString();
-console.log(`Сегодня ${d.slice(0,10)}`);
-console.log(`${d.slice(11,13)} часов ${d.slice(14,16)} минут`);
+var d = new Date();
+console.log(`сегодня ${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`);
+console.log(`${d.getHours()} часов ${d.getMinutes()} минут`);
 
