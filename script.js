@@ -1,33 +1,82 @@
-// Задание 1
+let input = document.getElementById('#one');
+let ul1 = document.querySelector('ul');
+input.addEventListener('keyup', function (event) {
+    let li = document.createElement('li');
+    li.innerText = `${event.key}`;
+    ul1.append(li);
+})
 
-// Примените каждый из этих методов округления к трем числам: 5.4, 5.5, 5.6:
+// Вставить в html тег input (просто предусмотреть в разметке).
 
-// Math.round(x)
+// Обрабатывая событие keyup на теге input, выводить в консоль введенный текст каждый раз, как только клиент вписывает любой символ в поле (или стирает любой символ из поля). Вам понадобится считывать значение поля, это input.value
+let inp = document.getElementById('#inp');
+inp.addEventListener('keyup', () => {
 
-// Math.ceil(x)
-// Math.floor(x)
-
-// В комментариях к каждой строке напишите, как работают эти округления.
- console.log(Math.round(5.4));// округление в меньшую сторону если дробная часть меньше пяти , а если больше или равна пяти ,то в большую
- console.log(Math.round(5.5));
- console.log(Math.round(5.6));
- console.log(Math.ceil(5.4));// всегда в большую 
- console.log(Math.ceil(5.5));
- console.log(Math.ceil(5.6));
- console.log(Math.floor(5.4)); // всегда в  меньшую  
- console.log(Math.floor(5.5));
- console.log(Math.floor(5.6));
+    console.log(inp.value);
+})
 
 
-// Задание 2
 
-// Выведите в консоль фразы в 2 строки:
 
-// Сегодня 27.10.2022 (здесь будет ваша дата)
+//   Задание 3
 
-// 19 часов 20 минут (здесь будет ваше время)
-var dat = new Date().toLocaleDateString();
-var hour = new Date().getHours();
-var min = new Date().getMinutes(); 
-console.log(`Сегодня ${dat}`);
-console.log(`${hour} часов ${min} минут`);
+//   Создать в html форму с инпутом и кнопкой. Также добавить в html тег ul. Когда форма отправляется, добавлять в список тег li. Его содержимое - введенный текст (input.value). После отправки формы инпут должен быть очищен (проставить пустую строку в value). 
+const edit = document.querySelector('#edit');
+const ul = document.querySelector('#ul');
+const fm = document.forms.fm;
+fm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let li = document.createElement('li');
+    li.innerText = edit.value;
+    edit.value = '';
+    ul.appendChild(li);
+})
+
+
+// Калькулятор. 
+
+// Создать в html форму с текстовым input, тегом select, вторым текстовым input и кнопкой. Добавить в html div. Внутри select будут options - арифметические знаки. В оба инпута пользователь вводит число. Когда пользователь отправляет форму (событие submit), над двумя числами выполняется действие, выбранное в select (чтобы получить выбранный пользователем option, мы "забираем" значение  select.value). Результат отображается в div.
+
+
+
+// 1) решить с помощью if
+
+// 2) решить с помощью evel (https://developer.mozilla.org/...)
+const first = document.querySelector('#first');
+const second = document.querySelector('#second');
+const select = document.querySelector('#znak')
+const fm1 = document.forms.fm1;
+const cont = document.querySelector('#container');
+fm1.addEventListener('submit', () => {
+    if (select.value == '+') {
+        cont.innerText = first.value + second.value;
+    }
+    if (select.value == '-') {
+        cont.innerText = first.value - second.value;
+    }
+    if (select.value == '*') {
+        cont.innerText = first.value * second.value;
+    }
+    if (select.value == '/') {
+        cont.innerText = first.value / second.value;
+    }
+})
+
+
+// Задание 5
+
+// Вставить в разметку html тег button без js (просто предусмотреть в разметке). При наведении на кнопку изменять ее цвет каждый раз рандомным цветом. При выведении мышки за пределы кнопки поворачивать кнопку на рандомный угол от -180 до 180 градусов. Использовать обработку событий mouseenter, mouseleave на этой кнопке.
+const but = document.querySelector('#color');
+but.addEventListener('mouseenter', (c1,c2,c3) => {
+    but.style.background = `${rand}` 
+})
+but.addEventListener('mouseleave', () => {
+    but.style.transform.rotate = `${getRandomInRange()}deg`;
+})
+function rand() {
+    return Math.floor(Math.random() * 256);
+  }
+  function getRandomInRange() {
+    return (Math.random() * (180 + 180) + 180);
+}
+
